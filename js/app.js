@@ -48,7 +48,10 @@
     return e;
   }
   const norm = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  const icoHtml = (cat) => `<i class="fa-solid ${cat.icone}"></i>`;
+  // Ícones de game-icons.net (CC BY 3.0), um SVG por categoria em icones/<id>.svg
+  // (máscara inline: url() dentro de variável CSS seria resolvida a partir de css/)
+  const giHtml = (nome) => `<i class="gi" style="-webkit-mask-image:url('icones/${nome}.svg');mask-image:url('icones/${nome}.svg')"></i>`;
+  const icoHtml = (cat) => giHtml(cat.id);
   let toastT;
   function toast(msg) {
     const t = $('#toast'); t.textContent = msg; t.classList.add('visivel');
@@ -416,7 +419,7 @@
   const camadaNotas = L.layerGroup().addTo(mapa);
   const marcadoresNota = new Map();
   const iconeNota = L.divIcon({
-    className: 'pin pin-nota', html: '<span class="pin-c" style="--c:var(--acento-2)"><i class="fa-solid fa-pen"></i></span>',
+    className: 'pin pin-nota', html: `<span class="pin-c" style="--c:var(--acento-2)">${giHtml('nota')}</span>`,
     iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24]
   });
 

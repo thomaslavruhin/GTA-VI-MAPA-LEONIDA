@@ -140,6 +140,7 @@ flowchart LR
 ├── js/
 │   ├── app.js              lógica do mapa, busca, progresso e notas
 │   └── categorias.js       categorias PT-BR e tradução das tags
+├── icones/                 ícones das categorias (game-icons.net)
 ├── data/landmarks.json     locais (gtadb.org)
 ├── tiles/day/{z}/          tiles do mapa, zoom 0–5 (gtadb.org)
 ├── docs/                   imagens deste README
@@ -198,7 +199,8 @@ Sugestões e correções são bem-vindas:
 |---|---|---|
 | Locais, fotos e tiles do mapa | [gtadb.org e colaboradores](https://github.com/rolux/gtadb.org) · [map.gtadb.org](https://map.gtadb.org) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) |
 | Biblioteca de mapas | [Leaflet](https://github.com/Leaflet/Leaflet) | BSD-2-Clause |
-| Ícones | [Font Awesome Free](https://fontawesome.com) | CC BY 4.0 / SIL OFL 1.1 |
+| Ícones do mapa | [game-icons.net](https://game-icons.net): Delapouite, Lorc, Skoll, John Colburn, Andy Meneely ([lista completa](icones/CREDITOS.md)) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
+| Ícones da interface | [Font Awesome Free](https://fontawesome.com) | CC BY 4.0 / SIL OFL 1.1 |
 | Fonte | [Inter](https://rsms.me/inter/) via Google Fonts | SIL OFL 1.1 |
 
 **Alterações nos dados do gtadb (exigência da CC BY 4.0):** as tags foram reagrupadas em categorias e traduzidas para o português, e foram incluídos apenas os zooms 0 a 5 do conjunto de tiles "day".

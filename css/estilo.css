@@ -234,6 +234,14 @@ body.painel-fechado #mapa { left: 0; }
 .pp-cab { display: flex; align-items: flex-start; gap: 10px; padding: 14px 36px 10px 14px; }
 .pp-ico { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; border: 2px solid #fff; }
 .cat-ico, .res-ico { border-radius: 6px; }
+/* Ícone game-icons.net aplicado como máscara: assume a cor do texto */
+.gi {
+  display: block; width: 68%; height: 68%; background-color: currentColor;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+.pin-c .gi { width: 80%; height: 80%; }
 .pp-cab h3 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.25; }
 .pp-sub { display: block; color: var(--texto-2); font-size: 12px; margin-top: 2px; }
 .pp-cat { display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--c); text-transform: uppercase; letter-spacing: .6px; }
