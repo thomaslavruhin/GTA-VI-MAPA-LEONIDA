@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Mapa Interativo de Leonida — GTA VI</title>
+  <meta name="description" content="Mapa interativo de Leonida (GTA VI) em português, com categorias, busca e progresso.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='13' r='9' fill='%23ff4f8b'/><path d='M16 31 8 18h16z' fill='%23ff4f8b'/><circle cx='16' cy='13' r='4' fill='%23fff'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <button class="topo-btn" id="btn-menu" title="Mostrar/ocultar painel" aria-label="Mostrar ou ocultar painel">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a class="marca" href="./">
+      <span class="marca-pin"><i class="fa-solid fa-location-dot"></i></span>
+      <span class="marca-txt"><b>Leonida</b><small>Mapa interativo · GTA VI</small></span>
+    </a>
+    <div class="topo-dir">
+      <button class="topo-btn" id="btn-sobre" title="Sobre e créditos"><i class="fa-solid fa-circle-info"></i><span>Sobre</span></button>
+    </div>
+  </header>
+
+  <aside class="painel" id="painel" aria-label="Painel de categorias">
+    <div class="painel-rolagem">
+      <div class="busca">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="busca" type="search" placeholder="Buscar locais, bairros, cidades…" autocomplete="off" aria-label="Buscar locais">
+        <kbd>/</kbd>
+      </div>
+
+      <section class="progresso">
+        <div class="progresso-topo">
+          <span>Progresso total</span>
+          <b id="progresso-txt">0 / 0</b>
+        </div>
+        <div class="barra"><div class="barra-fill" id="progresso-barra"></div></div>
+      </section>
+
+      <div class="acoes">
+        <button class="btn" id="btn-mostrar-tudo"><i class="fa-solid fa-eye"></i> Mostrar tudo</button>
+        <button class="btn" id="btn-ocultar-tudo"><i class="fa-solid fa-eye-slash"></i> Ocultar tudo</button>
+      </div>
+      <label class="chave">
+        <input type="checkbox" id="chk-ocultar-encontrados">
+        <span class="chave-trilho"></span>
+        Ocultar locais encontrados
+      </label>
+
+      <div id="resultados" class="resultados" hidden></div>
+      <div id="categorias"></div>
+
+      <section class="notas-box">
+        <div class="notas-topo">
+          <h3><i class="fa-solid fa-note-sticky"></i> Minhas notas <span id="num-notas" class="pill">0</span></h3>
+          <button class="btn btn-peq" id="btn-nova-nota"><i class="fa-solid fa-plus"></i> Nova nota</button>
+        </div>
+        <p class="dica">Dica: clique com o botão direito no mapa (ou toque e segure) para adicionar uma nota.</p>
+        <div id="lista-notas" class="lista-notas"></div>
+      </section>
+
+      <div class="rodape-painel">
+        <button class="link-perigo" id="btn-zerar"><i class="fa-solid fa-rotate-left"></i> Zerar progresso</button>
+        <p>Dados e mapa: <a href="https://github.com/rolux/gtadb.org" target="_blank" rel="noopener">gtadb.org</a> (CC BY 4.0). Projeto de fãs, sem vínculo com a Rockstar Games.</p>
+      </div>
+    </div>
+  </aside>
+
+  <main id="mapa" aria-label="Mapa de Leonida"></main>
+
+  <div class="coords" id="coords" title="Coordenadas no jogo">X 0 · Y 0</div>
+  <div class="aviso-nota" id="aviso-nota" hidden><i class="fa-solid fa-crosshairs"></i> Clique no mapa para posicionar a nota <button id="cancelar-nota">Cancelar</button></div>
+  <div class="carregando" id="carregando"><div class="spinner"></div><span>Carregando locais…</span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="dlg-sobre" class="dialogo">
+    <form method="dialog">
+      <h2>Sobre este mapa</h2>
+      <p>Mapa interativo e não oficial de <b>Leonida</b>, o estado de GTA VI, em português.</p>
+      <h3>Fontes</h3>
+      <ul>
+        <li><b>Locais, fotos e tiles do mapa:</b> <a href="https://github.com/rolux/gtadb.org" target="_blank" rel="noopener">gtadb.org e colaboradores</a>, sob licença <a href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR" target="_blank" rel="noopener">CC BY 4.0</a>. As categorias e os textos foram traduzidos e reorganizados para este site.</li>
+        <li><b>Mapa:</b> <a href="https://github.com/Leaflet/Leaflet" target="_blank" rel="noopener">Leaflet</a> (BSD-2).</li>
+        <li><b>Ícones:</b> <a href="https://fontawesome.com" target="_blank" rel="noopener">Font Awesome Free</a> (CC BY 4.0 / SIL OFL).</li>
+      </ul>
+      <p class="pequeno">Grand Theft Auto e Leonida são marcas da Rockstar Games / Take-Two. Este é um projeto de fãs, sem afiliação. O mapa é uma reconstrução da comunidade e pode conter imprecisões.</p>
+      <h3>Atalhos</h3>
+      <ul class="pequeno">
+        <li><kbd>/</kbd> buscar · <kbd>Esc</kbd> fechar · <kbd>M</kbd> painel</li>
+      </ul>
+      <div class="dialogo-acoes"><button class="btn btn-primario">Fechar</button></div>
+    </form>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/categorias.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
