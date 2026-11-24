@@ -205,7 +205,48 @@
     const z = mapa.getZoom();
     mapa.getContainer().classList.toggle('zoom-longe', z < CONFIG.zoomLonge);
     mapa.getContainer().classList.toggle('zoom-medio', z >= CONFIG.zoomLonge && z < CONFIG.zoomLonge + 1.5);
+    mapa.getContainer().classList.toggle('zoom-perto', z >= 4);
   }
+
+  /* ================= Nomes de regiões e bairros ================= */
+  // Posição = mediana dos locais que citam cada região/bairro no endereço (gtadb).
+  // Acima dos marcadores (600) e abaixo dos popups (700); não bloqueia cliques
+  const painelRotulos = mapa.createPane('rotulos');
+  painelRotulos.style.zIndex = 650;
+  painelRotulos.style.pointerEvents = 'none';
+  function criarRotulos(dados) {
+    const grupos = { regiao: new Map(), bairro: new Map() };
+    const add = (tipo, nome, x, y) => {
+      if (!nome || nome === '?' || nome === 'Leonida') return;
+      if (!grupos[tipo].has(nome)) grupos[tipo].set(nome, []);
+      grupos[tipo].get(nome).push([x, y]);
+    };
+    Object.values(dados).forEach((v) => {
+      if (!Array.isArray(v[1]) || v[1].length !== 2) return;
+      const p = String(v[0] || '').split(', ');
+      if (p.length >= 2) add('regiao', p[p.length - 1], v[1][0], v[1][1]);
+      if (p.length >= 3) add('bairro', p[p.length - 2], v[1][0], v[1][1]);
+    });
+    const mediana = (a) => { const s = a.slice().sort((m, n) => m - n); return s[Math.floor(s.length / 2)]; };
+    const nomesRegiao = new Set(grupos.regiao.keys());
+    const camadaRotulos = L.layerGroup().addTo(mapa);
+    ['regiao', 'bairro'].forEach((tipo) => grupos[tipo].forEach((pts, nome) => {
+      if (pts.length < (tipo === 'regiao' ? 5 : 3)) return;
+      if (tipo === 'bairro' && nomesRegiao.has(nome)) return;
+      const x = mediana(pts.map((q) => q[0])), y = mediana(pts.map((q) => q[1]));
+      L.marker(ll(x, y), {
+        pane: 'rotulos', interactive: false, keyboard: false,
+        icon: L.divIcon({ className: `rotulo rotulo-${tipo}`, html: `<span>${nome.replace(/</g, '&lt;')}</span>`, iconSize: [0, 0] })
+      }).addTo(camadaRotulos);
+    }));
+  }
+  const chkRotulos = $('#chk-rotulos');
+  chkRotulos.checked = store.get('rotulos', true);
+  mapa.getContainer().classList.toggle('sem-rotulos', !chkRotulos.checked);
+  chkRotulos.addEventListener('change', () => {
+    store.set('rotulos', chkRotulos.checked);
+    mapa.getContainer().classList.toggle('sem-rotulos', !chkRotulos.checked);
+  });
 
   /* ================= Popup ================= */
   function popupLocal(loc) {
@@ -517,6 +558,7 @@
         .map(([id, v]) => normalizarLocal(id, v));
       LOCAIS.forEach((l) => { PORID.set(l.id, l); contagem[l.cat.id] = (contagem[l.cat.id] || 0) + 1; });
       renderCategorias();
+      criarRotulos(dados);
       if (h.loc && PORID.has(h.loc)) irPara(h.loc, false);
       atualizarMarcadores();
     })

@@ -184,8 +184,10 @@ body.painel-fechado #mapa { left: 0; }
 .pin { cursor: pointer; }
 .pin-c {
   position: relative; display: grid; place-items: center; width: 100%; height: 100%;
-  border-radius: 50%; background: var(--c); color: #111; font-size: 12px;
-  border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .55);
+  border-radius: 7px; background: var(--c); color: #16181d; font-size: 13px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .35), 0 3px 8px rgba(0, 0, 0, .45);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 55%);
   transition: transform .12s;
 }
 .pin:hover .pin-c { transform: scale(1.18); }
@@ -202,7 +204,22 @@ body.painel-fechado #mapa { left: 0; }
 .zoom-medio .pin:hover .pin-c { transform: scale(.95); }
 .zoom-longe .pin-c i, .zoom-longe .pin-ok { display: none; }
 
-.pin-nota .pin-c { background: var(--acento-2); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.pin-nota .pin-c { background-color: var(--acento-2); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+
+/* Nomes de regiões e bairros sobre o mapa */
+.rotulo { pointer-events: none !important; white-space: nowrap; }
+.rotulo span {
+  display: inline-block; transform: translate(-50%, -50%);
+  text-shadow: 0 0 3px rgba(0, 0, 0, .55), 0 1px 2px rgba(0, 0, 0, .6);
+}
+.rotulo-regiao span {
+  color: #fff; font-weight: 800; font-size: 22px; letter-spacing: .5px; text-transform: uppercase;
+  font-stretch: condensed; -webkit-text-stroke: .6px rgba(0, 0, 0, .35);
+}
+.rotulo-bairro span { color: #8ee6a4; font-weight: 600; font-size: 15px; }
+.sem-rotulos .rotulo, .zoom-longe .rotulo-bairro { display: none; }
+.zoom-longe .rotulo-regiao span { font-size: 16px; }
+.zoom-perto .rotulo-regiao { display: none; }
 .pin-nota .pin-c i { transform: rotate(45deg); }
 .pin-nota:hover .pin-c { transform: rotate(-45deg) scale(1.15); }
 
@@ -214,7 +231,8 @@ body.painel-fechado #mapa { left: 0; }
 .leaflet-container a.leaflet-popup-close-button:hover { color: #fff; }
 
 .pp-cab { display: flex; align-items: flex-start; gap: 10px; padding: 14px 36px 10px 14px; }
-.pp-ico { width: 32px; height: 32px; font-size: 14px; }
+.pp-ico { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; border: 2px solid #fff; }
+.cat-ico, .res-ico { border-radius: 6px; }
 .pp-cab h3 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.25; }
 .pp-sub { display: block; color: var(--texto-2); font-size: 12px; margin-top: 2px; }
 .pp-cat { display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--c); text-transform: uppercase; letter-spacing: .6px; }
