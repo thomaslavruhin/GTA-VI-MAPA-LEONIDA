@@ -1,58 +1,67 @@
 /*
- * Categorias em português, derivadas das tags do banco de dados gtadb.org.
- * Cada categoria lista as tags de origem ("tags") que a definem.
+ * Categorias em português, organizadas nos mesmos grupos do MapGenie
+ * (mapgenie.io/grand-theft-auto-6/maps/leonida), mantendo apenas as
+ * categorias que têm dados no banco aberto do gtadb.org.
+ *
+ * "tags" lista as tags do gtadb que definem cada categoria.
  * A ordem importa: um local recebe a PRIMEIRA categoria cujas tags ele possui.
+ * Locais sem nenhuma dessas tags não aparecem no mapa.
+ * O ícone de cada categoria fica em icones/<id>.svg.
  */
 window.GRUPOS = [
   {
-    id: 'lojas', nome: 'Lojas e serviços',
+    id: 'interesse', nome: 'Pontos de interesse',
     categorias: [
-      { id: 'esconderijo', nome: 'Esconderijos', icone: 'fa-house-lock', cor: '#4fc3f7', tags: ['#safehouse'] },
-      { id: 'armas', nome: 'Lojas de armas', icone: 'fa-gun', cor: '#ef5350', tags: ['#guns'] },
-      { id: 'posto', nome: 'Postos de gasolina', icone: 'fa-gas-pump', cor: '#ffb74d', tags: ['#gas'] },
-      { id: 'roupas', nome: 'Roupas e calçados', icone: 'fa-shirt', cor: '#f06292', tags: ['#clothes', '#shoes'] },
-      { id: 'estetica', nome: 'Barbearias e tatuagens', icone: 'fa-scissors', cor: '#ce93d8', tags: ['#hair', '#tattoos'] },
-      { id: 'oficina', nome: 'Oficinas e lava-jatos', icone: 'fa-wrench', cor: '#90a4ae', tags: ['#modshop', "#pay'n'spray", '#carwash'] },
-      { id: 'mercado', nome: 'Supermercados', icone: 'fa-cart-shopping', cor: '#81c784', tags: ['#supermarket', 'supermarket'] },
-      { id: 'comida', nome: 'Comida e bebida', icone: 'fa-burger', cor: '#ffd54f', tags: ['#food', '#fastfood', '#drinks', '#vendor', 'restaurant'] },
-      { id: 'noite', nome: 'Vida noturna', icone: 'fa-martini-glass', cor: '#b388ff', tags: ['#bar', '#nightclub', '#stripclub'] },
-      { id: 'eletronicos', nome: 'Eletrônicos', icone: 'fa-mobile-screen', cor: '#4dd0e1', tags: ['#electronics'] },
-      { id: 'comercio', nome: 'Comércio', icone: 'fa-store', cor: '#a5d6a7', tags: ['retail'] }
+      { id: 'armas', nome: 'Ammu-Nation', singular: 'Ammu-Nation', cor: '#ef5350', tags: ['#guns'] },
+      { id: 'clube', nome: 'Clubes', singular: 'Clube', cor: '#b388ff', tags: ['#nightclub', '#stripclub'] }
     ]
   },
   {
-    id: 'transporte', nome: 'Transporte',
+    id: 'roubos', nome: 'Roubos',
     categorias: [
-      { id: 'aeroporto', nome: 'Aeroportos', icone: 'fa-plane', cor: '#64b5f6', tags: ['#airport', '#airbase'] },
-      { id: 'trem', nome: 'Trens e metrô', icone: 'fa-train-subway', cor: '#7986cb', tags: ['#train', '#metro', '#metromover'] },
-      { id: 'onibus', nome: 'Pontos de ônibus', icone: 'fa-bus', cor: '#9575cd', tags: ['#bus'] },
-      { id: 'marina', nome: 'Marinas', icone: 'fa-anchor', cor: '#4db6ac', tags: ['#marina'] },
-      { id: 'autodromo', nome: 'Autódromos', icone: 'fa-flag-checkered', cor: '#e57373', tags: ['#racetrack'] },
-      { id: 'transporte', nome: 'Transporte (outros)', icone: 'fa-road', cor: '#b0bec5', tags: ['transportation'] }
+      { id: 'conveniencia', nome: 'Lojas de conveniência', singular: 'Loja de conveniência', cor: '#81c784', tags: ['#supermarket', 'supermarket'] },
+      { id: 'fastfood', nome: 'Fast food', singular: 'Fast food', cor: '#ffd54f', tags: ['#fastfood'] }
     ]
   },
   {
-    id: 'publico', nome: 'Serviços públicos',
+    id: 'veiculos', nome: 'Veículos',
     categorias: [
-      { id: 'policia', nome: 'Polícia e prisões', icone: 'fa-shield-halved', cor: '#5c6bc0', tags: ['#police', '#jail'] },
-      { id: 'hospital', nome: 'Hospitais', icone: 'fa-hospital', cor: '#e53935', tags: ['#hospital'] },
-      { id: 'governo', nome: 'Governo', icone: 'fa-landmark-dome', cor: '#bcaaa4', tags: ['government'] },
-      { id: 'publico', nome: 'Espaços públicos', icone: 'fa-people-group', cor: '#a1887f', tags: ['public'] },
-      { id: 'infra', nome: 'Infraestrutura', icone: 'fa-bolt', cor: '#fff176', tags: ['utilities'] }
+      { id: 'paynspray', nome: "Pay 'N' Spray", singular: "Pay 'N' Spray", cor: '#4fc3f7', tags: ["#pay'n'spray"] },
+      { id: 'modshop', nome: 'Oficinas de personalização', singular: 'Oficina', cor: '#90a4ae', tags: ['#modshop'] },
+      { id: 'posto', nome: 'Postos de gasolina', singular: 'Posto de gasolina', cor: '#ffb74d', tags: ['#gas'] },
+      { id: 'lavajato', nome: 'Lava-jatos', singular: 'Lava-jato', cor: '#4dd0e1', tags: ['#carwash'] },
+      { id: 'onibus', nome: 'Pontos de ônibus', singular: 'Ponto de ônibus', cor: '#9575cd', tags: ['#bus'] },
+      { id: 'trem', nome: 'Estações de trem', singular: 'Estação', cor: '#7986cb', tags: ['#train', '#metro', '#metromover'] }
     ]
   },
   {
-    id: 'locais', nome: 'Locais',
+    id: 'estilo', nome: 'Estilo',
     categorias: [
-      { id: 'turismo', nome: 'Pontos turísticos', icone: 'fa-camera', cor: '#ff8a65', tags: ['landmark', 'point-of-interest', '#ferriswheel', '#blimp'] },
-      { id: 'hotel', nome: 'Hotéis', icone: 'fa-hotel', cor: '#4fc3f7', tags: ['hotel'] },
-      { id: 'lazer', nome: 'Lazer e esportes', icone: 'fa-umbrella-beach', cor: '#ffcc80', tags: ['leisure', '#tennis', 'events'] },
-      { id: 'natureza', nome: 'Natureza', icone: 'fa-tree', cor: '#66bb6a', tags: ['natural', 'agriculture'] },
-      { id: 'residencial', nome: 'Residências', icone: 'fa-house', cor: '#80cbc4', tags: ['residential'] },
-      { id: 'escritorio', nome: 'Escritórios', icone: 'fa-building', cor: '#90caf9', tags: ['office'] },
-      { id: 'industria', nome: 'Indústria', icone: 'fa-industry', cor: '#a1a1a1', tags: ['industrial'] },
-      { id: 'obra', nome: 'Em construção', icone: 'fa-helmet-safety', cor: '#ffa726', tags: ['construction'] },
-      { id: 'outros', nome: 'Outros locais', icone: 'fa-location-dot', cor: '#e0e0e0', tags: [] }
+      { id: 'roupas', nome: 'Roupas', singular: 'Loja de roupas', cor: '#f06292', tags: ['#clothes'] },
+      { id: 'calcados', nome: 'Calçados', singular: 'Loja de calçados', cor: '#ff8a65', tags: ['#shoes'] },
+      { id: 'cabelo', nome: 'Cabelo e beleza', singular: 'Cabelo e beleza', cor: '#ce93d8', tags: ['#hair'] },
+      { id: 'tatuagem', nome: 'Tatuagens', singular: 'Estúdio de tatuagem', cor: '#a1887f', tags: ['#tattoos'] },
+      { id: 'eletronicos', nome: 'Eletrônicos', singular: 'Loja de eletrônicos', cor: '#64b5f6', tags: ['#electronics'] }
+    ]
+  },
+  {
+    id: 'comida', nome: 'Comida e bebida',
+    categorias: [
+      { id: 'cafes', nome: 'Cafés e lanches', singular: 'Café / lanchonete', cor: '#ffcc80', tags: ['#food', '#drinks', 'restaurant'] },
+      { id: 'bar', nome: 'Bares', singular: 'Bar', cor: '#ffa726', tags: ['#bar'] },
+      { id: 'comidarua', nome: 'Comida de rua', singular: 'Comida de rua', cor: '#e57373', tags: ['#vendor'] }
+    ]
+  },
+  {
+    id: 'wainK', nome: 'Locais WAiNK',
+    categorias: [
+      { id: 'turismo', nome: 'Pontos turísticos', singular: 'Ponto turístico', cor: '#80cbc4', tags: ['landmark', 'point-of-interest', '#ferriswheel', '#blimp'] }
+    ]
+  },
+  {
+    id: 'corridas', nome: 'Corridas',
+    categorias: [
+      { id: 'autodromo', nome: 'Autódromos', singular: 'Autódromo', cor: '#e0e0e0', tags: ['#racetrack'] }
     ]
   }
 ];

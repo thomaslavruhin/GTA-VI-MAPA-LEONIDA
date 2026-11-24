@@ -4,7 +4,7 @@
 
 ### O mapa de **GTA VI** em português, direto no navegador
 
-Explore Vice City, as Keys, Grassrivers e o resto de Leonida com mais de **3.600 locais**, busca, fotos, progresso e notas pessoais.
+Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **219 locais confirmados** nas mesmas categorias do MapGenie, busca, fotos, progresso e notas pessoais.
 
 <br>
 
@@ -16,7 +16,7 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com mais de **3.600
 ![Leaflet](https://img.shields.io/badge/Leaflet-1.9.4-199900?style=flat-square&logo=leaflet&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-puro-f7df1e?style=flat-square&logo=javascript&logoColor=black)
 ![Idioma](https://img.shields.io/badge/idioma-PT--BR-009c3b?style=flat-square)
-![Locais](https://img.shields.io/badge/locais-3.663-ffb547?style=flat-square)
+![Locais](https://img.shields.io/badge/locais-219-ffb547?style=flat-square)
 ![Dados](https://img.shields.io/badge/dados-CC_BY_4.0-lightgrey?style=flat-square&logo=creativecommons&logoColor=white)
 
 <br>
@@ -48,7 +48,7 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com mais de **3.600
 <td width="50%" valign="top">
 
 ### 🏷️ Categorias
-- **31 categorias** em **4 grupos**, com ícones e cores próprios
+- **20 categorias** em **7 grupos**, os mesmos do MapGenie, com ícones de jogo
 - Mostrar e ocultar por categoria, por grupo ou tudo de uma vez
 - Contador de encontrados por categoria (`3/19`)
 
@@ -87,14 +87,17 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com mais de **3.600
 
 | Grupo | Categorias |
 |---|---|
-| 🛍️ **Lojas e serviços** | Esconderijos (4) · Lojas de armas (6) · Postos de gasolina (19) · Roupas e calçados (12) · Barbearias e tatuagens (11) · Oficinas e lava-jatos (7) · Supermercados (19) · Comida e bebida (40) · Vida noturna (7) · Eletrônicos (3) · Comércio (117) |
-| ✈️ **Transporte** | Aeroportos (11) · Trens e metrô (23) · Pontos de ônibus (34) · Marinas (10) · Autódromos (4) · Transporte – outros (118) |
-| 🏛️ **Serviços públicos** | Polícia e prisões (6) · Hospitais (3) · Governo (50) · Espaços públicos (30) · Infraestrutura (44) |
-| 🌴 **Locais** | Pontos turísticos (33) · Hotéis (71) · Lazer e esportes (69) · Natureza (102) · Residências (342) · Escritórios (9) · Indústria (92) · Em construção (13) · Outros locais (2.354) |
+| 📍 **Pontos de interesse** | Ammu-Nation (6) · Clubes (4) |
+| 💰 **Roubos** | Lojas de conveniência (20) · Fast food (2) |
+| 🚗 **Veículos** | Pay 'N' Spray (2) · Oficinas de personalização (4) · Postos de gasolina (18) · Lava-jatos (1) · Pontos de ônibus (34) · Estações de trem (23) |
+| 👕 **Estilo** | Roupas (9) · Calçados (3) · Cabelo e beleza (9) · Tatuagens (2) · Eletrônicos (3) |
+| 🍔 **Comida e bebida** | Cafés e lanches (32) · Bares (3) · Comida de rua (6) |
+| 📸 **Locais WAiNK** | Pontos turísticos (34) |
+| 🏁 **Corridas** | Autódromos (4) |
 
-> **Outros locais** reúne os pontos ainda sem nome ou tag no banco de dados. A categoria começa oculta para não poluir o mapa; ative-a no painel quando quiser.
+> Os grupos e categorias seguem os do [MapGenie](https://mapgenie.io/grand-theft-auto-6/maps/leonida), mas só entram as categorias que têm dados no banco aberto do gtadb. Colecionáveis, animais, veículos e atividades do MapGenie não existem no gtadb e por isso não aparecem aqui.
 >
-> Cerca de **2.400 locais têm foto** do jogo, e muitos também têm foto do lugar real que inspirou a construção.
+> **134 desses locais têm foto** do jogo, e muitos também têm foto do lugar real que inspirou a construção.
 
 </details>
 
@@ -199,7 +202,7 @@ Sugestões e correções são bem-vindas:
 |---|---|---|
 | Locais, fotos e tiles do mapa | [gtadb.org e colaboradores](https://github.com/rolux/gtadb.org) · [map.gtadb.org](https://map.gtadb.org) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) |
 | Biblioteca de mapas | [Leaflet](https://github.com/Leaflet/Leaflet) | BSD-2-Clause |
-| Ícones do mapa | [game-icons.net](https://game-icons.net): Delapouite, Lorc, Skoll, John Colburn, Andy Meneely ([lista completa](icones/CREDITOS.md)) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
+| Ícones do mapa | [game-icons.net](https://game-icons.net): Delapouite, Lorc, John Colburn, Caro Asercion ([lista completa](icones/CREDITOS.md)) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
 | Ícones da interface | [Font Awesome Free](https://fontawesome.com) | CC BY 4.0 / SIL OFL 1.1 |
 | Fonte | [Inter](https://rsms.me/inter/) via Google Fonts | SIL OFL 1.1 |
 

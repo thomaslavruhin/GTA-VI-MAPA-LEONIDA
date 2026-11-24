@@ -62,7 +62,7 @@
   /* ================= Estado ================= */
   const estado = {
     encontrados: new Set(store.get('encontrados', [])),
-    ocultas: new Set(store.get('ocultas', ['outros'])), // "Outros locais" começa oculto
+    ocultas: new Set(store.get('ocultas', [])),
     gruposFechados: new Set(store.get('gruposFechados', [])),
     ocultarEncontrados: store.get('ocultarEncontrados', false),
     notas: store.get('notas', []),
@@ -81,19 +81,10 @@
   const CATS = {};
   const ORDEM = [];
   window.GRUPOS.forEach((g) => g.categorias.forEach((c) => { CATS[c.id] = c; ORDEM.push(c); }));
-  // Título usado quando o local não tem nome conhecido no jogo ("?")
-  const SINGULAR = {
-    esconderijo: 'Esconderijo', armas: 'Loja de armas', posto: 'Posto de gasolina', roupas: 'Loja de roupas',
-    estetica: 'Barbearia / tatuagem', oficina: 'Oficina', mercado: 'Supermercado', comida: 'Comida e bebida',
-    noite: 'Bar / casa noturna', eletronicos: 'Loja de eletrônicos', comercio: 'Comércio', aeroporto: 'Aeroporto',
-    trem: 'Estação', onibus: 'Ponto de ônibus', marina: 'Marina', autodromo: 'Autódromo', transporte: 'Transporte',
-    policia: 'Polícia', hospital: 'Hospital', governo: 'Prédio do governo', publico: 'Espaço público',
-    infra: 'Infraestrutura', turismo: 'Ponto turístico', hotel: 'Hotel', lazer: 'Lazer', natureza: 'Área natural',
-    residencial: 'Residência', escritorio: 'Escritório', industria: 'Indústria', obra: 'Em construção', outros: 'Local sem nome'
-  };
+  // Locais sem nenhuma tag das categorias retornam null e ficam fora do mapa
   function categoriaDe(tags) {
     for (const c of ORDEM) if (c.tags.some((t) => tags.includes(t))) return c;
-    return CATS.outros;
+    return null;
   }
 
   /* ================= Mapa ================= */
@@ -152,8 +143,9 @@
     const partes = String(v[0] || '').split(', ');
     const tags = (v[6] || []).filter((t) => !t.startsWith('//') && !/^l\d$/.test(t));
     const cat = categoriaDe(tags);
+    if (!cat) return null;
     const semNome = !partes[0] || partes[0] === '?';
-    const titulo = semNome ? (SINGULAR[cat.id] || 'Local sem nome') : partes[0];
+    const titulo = semNome ? (cat.singular || cat.nome) : partes[0];
     const sub = partes.slice(1).join(', ');
     return {
       id, titulo, semNome, sub, cat,
@@ -558,7 +550,8 @@
     .then((dados) => {
       LOCAIS = Object.entries(dados)
         .filter(([, v]) => Array.isArray(v[1]) && v[1].length === 2)
-        .map(([id, v]) => normalizarLocal(id, v));
+        .map(([id, v]) => normalizarLocal(id, v))
+        .filter(Boolean);
       LOCAIS.forEach((l) => { PORID.set(l.id, l); contagem[l.cat.id] = (contagem[l.cat.id] || 0) + 1; });
       renderCategorias();
       criarRotulos(dados);
