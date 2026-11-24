@@ -122,7 +122,7 @@ Site **100% estático**: sem servidor, sem banco de dados e sem build. HTML, CSS
 ```mermaid
 flowchart LR
     A[(gtadb.org<br/>repositório aberto)] -->|landmarks.json| B[data/]
-    A -->|tiles do mapa| C[tiles/day/]
+    A -->|tiles do mapa| C[tiles/yanis18/]
     A -.->|fotos sob demanda| E
     B --> D[js/app.js<br/>Leaflet]
     C --> D
@@ -145,7 +145,7 @@ flowchart LR
 │   └── categorias.js       categorias PT-BR e tradução das tags
 ├── icones/                 ícones das categorias (game-icons.net)
 ├── data/landmarks.json     locais (gtadb.org)
-├── tiles/day/{z}/          tiles do mapa, zoom 0–5 (gtadb.org)
+├── tiles/yanis18/{z}/      tiles do mapa, zoom 0–5 (gtadb.org)
 ├── docs/                   imagens deste README
 └── atualizar-dados.ps1     baixa a versão mais recente dos dados
 ```
@@ -200,13 +200,14 @@ Sugestões e correções são bem-vindas:
 
 | O quê | Fonte | Licença |
 |---|---|---|
-| Locais, fotos e tiles do mapa | [gtadb.org e colaboradores](https://github.com/rolux/gtadb.org) · [map.gtadb.org](https://map.gtadb.org) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) |
+| Locais e fotos | [gtadb.org e colaboradores](https://github.com/rolux/gtadb.org) · [map.gtadb.org](https://map.gtadb.org) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) |
+| Mapa base "yanis,18" | Reconstrução da comunidade (GTA VI Mapping Project, versão 18 de Yanis), em tiles do [gtadb.org](https://github.com/rolux/gtadb.org) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) |
 | Biblioteca de mapas | [Leaflet](https://github.com/Leaflet/Leaflet) | BSD-2-Clause |
 | Ícones do mapa | [game-icons.net](https://game-icons.net): Delapouite, Lorc, John Colburn, Caro Asercion ([lista completa](icones/CREDITOS.md)) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
 | Ícones da interface | [Font Awesome Free](https://fontawesome.com) | CC BY 4.0 / SIL OFL 1.1 |
 | Fonte | [Inter](https://rsms.me/inter/) via Google Fonts | SIL OFL 1.1 |
 
-**Alterações nos dados do gtadb (exigência da CC BY 4.0):** as tags foram reagrupadas em categorias e traduzidas para o português, e foram incluídos apenas os zooms 0 a 5 do conjunto de tiles "day".
+**Alterações nos dados do gtadb (exigência da CC BY 4.0):** as tags foram reagrupadas em categorias e traduzidas para o português, e foram incluídos apenas os zooms 0 a 5 do mapa base "yanis,18" (reconstrução da comunidade), com o painel de legenda do pôster original coberto pela cor do mar.
 
 <div align="center">
 <br>

@@ -163,10 +163,10 @@ body.painel-fechado .painel { transform: translateX(-100%); }
 /* ---------- Mapa ---------- */
 #mapa {
   position: fixed; top: var(--topo-h); right: 0; bottom: 0; left: var(--painel-w);
-  background: #1b4f6a; transition: left .25s ease;
+  background: #2c67a4; transition: left .25s ease;
 }
 body.painel-fechado #mapa { left: 0; }
-.leaflet-container { font-family: inherit; background: #1b4f6a; }
+.leaflet-container { font-family: inherit; background: #2c67a4; }
 .leaflet-tile { image-rendering: auto; }
 /* Evita linhas entre tiles em zoom fracionado: o Leaflet 1.9 usa "plus-lighter",
    que clareia as bordas sobrepostas. Mistura normal + leve sobreposição fecha as frestas. */

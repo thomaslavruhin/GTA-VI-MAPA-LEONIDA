@@ -9,14 +9,17 @@
   /* ================= Configuração ================= */
   const CONFIG = {
     dados: 'data/landmarks.json',
-    tiles: 'tiles/day/{z}/{z},{y},{x}.jpg',
+    // Mapa base "yanis,18": reconstrução da comunidade (GTA VI Mapping Project), via gtadb.org
+    tiles: 'tiles/yanis18/{z}/{z},{y},{x}.jpg',
     // Fotos carregadas sob demanda direto do repositório de origem
     fotos: 'https://raw.githubusercontent.com/rolux/gtadb.org/main/map/photos/6/',
     // Faixa de tiles existentes por zoom: [[xMin, yMin], [xMax, yMax]] (de gtadb.org/maps/maps.js)
     faixas: {
-      0: [[0, 0], [2, 3]], 1: [[1, 1], [5, 6]], 2: [[2, 2], [10, 12]],
-      3: [[4, 4], [20, 25]], 4: [[8, 8], [41, 51]], 5: [[17, 17], [83, 103]]
+      0: [[0, 0], [3, 3]], 1: [[1, 1], [6, 6]], 2: [[2, 2], [12, 12]],
+      3: [[5, 5], [25, 24]], 4: [[10, 10], [51, 49]], 5: [[21, 21], [103, 99]]
     },
+    corMar: '#2c67a4', // cor de fundo do yanis,18 (gtadb maps/tiles.py)
+    mascaras: [[4000, -16384, 16384, 16384]], // [x0, y0, x1, y1] em coordenadas do jogo
     zoomNativoMax: 5,
     zoomMax: 7,
     zoomMin: -1,
@@ -132,6 +135,15 @@
     className: 'tiles-leonida',
     attribution: 'Mapa e dados: <a href="https://map.gtadb.org" target="_blank" rel="noopener">gtadb.org</a> (<a href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR" target="_blank" rel="noopener">CC BY 4.0</a>)'
   }).addTo(mapa);
+
+  // A imagem original do mapa "yanis,18" é um pôster com legenda e créditos à direita.
+  // Cobrimos essa área (só oceano no jogo) com a cor do mar do próprio mapa.
+  const painelMascara = mapa.createPane('mascara');
+  painelMascara.style.zIndex = 250;
+  painelMascara.style.pointerEvents = 'none';
+  CONFIG.mascaras.forEach(([x0, y0, x1, y1]) => L.rectangle([ll(x0, y0), ll(x1, y1)], {
+    pane: 'mascara', stroke: false, fillColor: CONFIG.corMar, fillOpacity: 1, interactive: false
+  }).addTo(mapa));
 
   /* ================= Locais ================= */
   let LOCAIS = [];           // lista de locais normalizados
