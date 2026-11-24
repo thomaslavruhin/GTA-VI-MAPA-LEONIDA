@@ -27,3 +27,7 @@
 | `turismo.svg` | [photo-camera](https://game-icons.net/1x1/delapouite/photo-camera.html) | delapouite |
 | `autodromo.svg` | [checkered-flag](https://game-icons.net/1x1/delapouite/checkered-flag.html) | delapouite |
 | `nota.svg` | [pin](https://game-icons.net/1x1/delapouite/pin.html) | delapouite |
+| `academia.svg` | [weight-lifting-up](https://game-icons.net/1x1/delapouite/weight-lifting-up.html) | delapouite |
+| `bebidas.svg` | [wine-bottle](https://game-icons.net/1x1/delapouite/wine-bottle.html) | delapouite |
+| `joalheria.svg` | [diamond-ring](https://game-icons.net/1x1/delapouite/diamond-ring.html) | delapouite |
+| `golfe.svg` | [golf-flag](https://game-icons.net/1x1/delapouite/golf-flag.html) | delapouite |

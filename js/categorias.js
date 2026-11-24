@@ -12,15 +12,18 @@ window.GRUPOS = [
   {
     id: 'interesse', nome: 'Pontos de interesse',
     categorias: [
-      { id: 'armas', nome: 'Ammu-Nation', singular: 'Ammu-Nation', cor: '#ef5350', tags: ['#guns'] },
-      { id: 'clube', nome: 'Clubes', singular: 'Clube', cor: '#b388ff', tags: ['#nightclub', '#stripclub'] }
+      { id: 'academia', nome: 'Academias', singular: 'Academia', cor: '#90caf9', tags: ['#gym'] },
+      { id: 'clube', nome: 'Clubes', singular: 'Clube', cor: '#b388ff', tags: ['#nightclub', '#stripclub'] },
+      { id: 'armas', nome: 'Ammu-Nation', singular: 'Ammu-Nation', cor: '#ef5350', tags: ['#guns'] }
     ]
   },
   {
     id: 'roubos', nome: 'Roubos',
     categorias: [
+      { id: 'joalheria', nome: 'Joalherias', singular: 'Joalheria', cor: '#4dd0e1', tags: ['#jewelry'] },
       { id: 'conveniencia', nome: 'Lojas de conveniência', singular: 'Loja de conveniência', cor: '#81c784', tags: ['#supermarket', 'supermarket'] },
-      { id: 'fastfood', nome: 'Fast food', singular: 'Fast food', cor: '#ffd54f', tags: ['#fastfood'] }
+      { id: 'fastfood', nome: 'Fast food', singular: 'Fast food', cor: '#ffd54f', tags: ['#fastfood'] },
+      { id: 'bebidas', nome: 'Lojas de bebidas', singular: 'Loja de bebidas', cor: '#ce93d8', tags: ['#liquor'] }
     ]
   },
   {
@@ -56,6 +59,12 @@ window.GRUPOS = [
     id: 'wainK', nome: 'Locais WAiNK',
     categorias: [
       { id: 'turismo', nome: 'Pontos turísticos', singular: 'Ponto turístico', cor: '#80cbc4', tags: ['landmark', 'point-of-interest', '#ferriswheel', '#blimp'] }
+    ]
+  },
+  {
+    id: 'esportes', nome: 'Esportes',
+    categorias: [
+      { id: 'golfe', nome: 'Campos de golfe', singular: 'Campo de golfe', cor: '#a5d6a7', tags: ['#golf'] }
     ]
   },
   {

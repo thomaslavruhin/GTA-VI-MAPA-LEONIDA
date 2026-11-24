@@ -4,7 +4,7 @@
 
 ### O mapa de **GTA VI** em português, direto no navegador
 
-Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **219 locais confirmados** nas mesmas categorias do MapGenie, busca, fotos, progresso e notas pessoais.
+Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **224 locais confirmados** nas mesmas categorias do MapGenie, busca, fotos, progresso e notas pessoais.
 
 <br>
 
@@ -16,7 +16,7 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **219 locais co
 ![Leaflet](https://img.shields.io/badge/Leaflet-1.9.4-199900?style=flat-square&logo=leaflet&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-puro-f7df1e?style=flat-square&logo=javascript&logoColor=black)
 ![Idioma](https://img.shields.io/badge/idioma-PT--BR-009c3b?style=flat-square)
-![Locais](https://img.shields.io/badge/locais-219-ffb547?style=flat-square)
+![Locais](https://img.shields.io/badge/locais-224-ffb547?style=flat-square)
 ![Dados](https://img.shields.io/badge/dados-CC_BY_4.0-lightgrey?style=flat-square&logo=creativecommons&logoColor=white)
 
 <br>
@@ -48,7 +48,7 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **219 locais co
 <td width="50%" valign="top">
 
 ### 🏷️ Categorias
-- **20 categorias** em **7 grupos**, os mesmos do MapGenie, com ícones de jogo
+- **24 categorias** em **8 grupos**, os mesmos do MapGenie, com ícones de jogo
 - Mostrar e ocultar por categoria, por grupo ou tudo de uma vez
 - Contador de encontrados por categoria (`3/19`)
 
@@ -87,17 +87,18 @@ Explore Vice City, as Keys, Grassrivers e o resto de Leonida com **219 locais co
 
 | Grupo | Categorias |
 |---|---|
-| 📍 **Pontos de interesse** | Ammu-Nation (6) · Clubes (4) |
-| 💰 **Roubos** | Lojas de conveniência (20) · Fast food (2) |
-| 🚗 **Veículos** | Pay 'N' Spray (2) · Oficinas de personalização (4) · Postos de gasolina (18) · Lava-jatos (1) · Pontos de ônibus (34) · Estações de trem (23) |
-| 👕 **Estilo** | Roupas (9) · Calçados (3) · Cabelo e beleza (9) · Tatuagens (2) · Eletrônicos (3) |
+| 📍 **Pontos de interesse** | Academias (1) · Clubes (4) · Ammu-Nation (6) |
+| 💰 **Roubos** | Joalherias (1) · Lojas de conveniência (20) · Fast food (2) · Lojas de bebidas (1) |
+| 🚗 **Veículos** | Pay 'N' Spray (1) · Oficinas de personalização (4) · Postos de gasolina (18) · Lava-jatos (1) · Pontos de ônibus (34) · Estações de trem (23) |
+| 👕 **Estilo** | Roupas (9) · Calçados (3) · Cabelo e beleza (10) · Tatuagens (2) · Eletrônicos (3) |
 | 🍔 **Comida e bebida** | Cafés e lanches (32) · Bares (3) · Comida de rua (6) |
-| 📸 **Locais WAiNK** | Pontos turísticos (34) |
+| 📸 **Locais WAiNK** | Pontos turísticos (35) |
+| ⛳ **Esportes** | Campos de golfe (1) |
 | 🏁 **Corridas** | Autódromos (4) |
 
 > Os grupos e categorias seguem os do [MapGenie](https://mapgenie.io/grand-theft-auto-6/maps/leonida), mas só entram as categorias que têm dados no banco aberto do gtadb. Colecionáveis, animais, veículos e atividades do MapGenie não existem no gtadb e por isso não aparecem aqui.
 >
-> **134 desses locais têm foto** do jogo, e muitos também têm foto do lugar real que inspirou a construção.
+> **136 desses locais têm foto** do jogo, e muitos também têm foto do lugar real que inspirou a construção.
 
 </details>
 
