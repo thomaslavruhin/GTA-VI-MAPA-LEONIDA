@@ -168,6 +168,9 @@ body.painel-fechado .painel { transform: translateX(-100%); }
 body.painel-fechado #mapa { left: 0; }
 .leaflet-container { font-family: inherit; background: #1b4f6a; }
 .leaflet-tile { image-rendering: auto; }
+/* Evita linhas entre tiles em zoom fracionado: o Leaflet 1.9 usa "plus-lighter",
+   que clareia as bordas sobrepostas. Mistura normal + leve sobreposição fecha as frestas. */
+.leaflet-container .tiles-leonida img.leaflet-tile { mix-blend-mode: normal; width: 256.6px !important; height: 256.6px !important; }
 .leaflet-bar { border: 0 !important; box-shadow: var(--sombra) !important; border-radius: 10px !important; overflow: hidden; }
 .leaflet-bar a {
   width: 38px !important; height: 38px !important; line-height: 38px !important;

@@ -135,6 +135,7 @@
     noWrap: true,
     keepBuffer: 4,
     errorTileUrl: VAZIO,
+    className: 'tiles-leonida',
     attribution: 'Mapa e dados: <a href="https://map.gtadb.org" target="_blank" rel="noopener">gtadb.org</a> (<a href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR" target="_blank" rel="noopener">CC BY 4.0</a>)'
   }).addTo(mapa);
 
@@ -478,7 +479,10 @@
   let buscaT;
   $('#busca').addEventListener('input', (e) => { clearTimeout(buscaT); buscaT = setTimeout(() => renderBusca(e.target.value), 120); });
   $('#busca').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { const b = document.querySelector('.res'); if (b) b.click(); }
+    if (e.key === 'Enter') {
+      clearTimeout(buscaT); renderBusca(e.target.value);
+      const b = document.querySelector('.res'); if (b) b.click();
+    }
   });
 
   document.addEventListener('keydown', (e) => {
